@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendance</title>
+	<link rel="stylesheet" type="text/css" href="css\style.css">
+	<link rel="stylesheet" type="text/css" href="css\login.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<!--<script type="text/javascript">
+		//document.getElementById("username").style="background:"+bgcolor+";";
+		/*
+		function ClearCheckUsername(){
+			var v = document.getElementById("username");
+			if(v.value=="Username" || v.value=="username"){
+				v.value="";
+			}
+		}
+		function ClearCheckPassword(){
+			var v = document.getElementById("password");
+			if(v.value=="Password" || v.value=="password"){
+				v.value="";
+			}
+		}
+		*/
+	</script>-->
+</head>
+<body id="body">
+<center>
+<?php
+ $con=mysqli_connect("locahost","root","");
+mysqli_select_db($con,"cs");
+?>
+
+<div class="content">
+
+
+<!-- load from here -->
+	
+	<div id="login">
+		<form action="conn.php" method="post">
+			<select name="usertype" class="ComboBox">
+				<option value="faculty">Faculty</option>
+				<option value="management">Management</option>
+				<option value="student">Student</option>
+			</select><br><br>
+			<input type="text" name="username" class="TextBox" placeholder="Username"><br><br>
+			<input type="password" name="password" class="TextBox" placeholder="Password"><br><br>
+			<button type="button" onclick="show()">login</button> 
+		</form>
+		<!--<button type="button" onclick="show()">login</button>
+
+
+	
+<!-- load to here -->
+
+</div>
+</div>
+<script>
+		function show(){
+			var i=new XMLHttpRequest();
+			i.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					document.getElementById("body").innerHTML = this.responseText;
+				}
+			};
+			i.open("GET","conn.php", true);
+			i.send();
+		}
+	</script>
+
+
+
+
+</center>
+<br>
+</body>
+</html>
